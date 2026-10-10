@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/friozao"
+    },
+    "facing=east": {
+      "model": "musae:block/friozao",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/friozao",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/friozao",
+      "y": 270
+    }
+  }
+}

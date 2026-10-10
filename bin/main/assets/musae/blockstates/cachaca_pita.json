@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/cachaca_pita"
+    },
+    "facing=east": {
+      "model": "musae:block/cachaca_pita",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/cachaca_pita",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/cachaca_pita",
+      "y": 270
+    }
+  }
+}

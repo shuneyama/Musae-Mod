@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/vinho_quentinho_inferno"
+    },
+    "facing=east": {
+      "model": "musae:block/vinho_quentinho_inferno",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/vinho_quentinho_inferno",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/vinho_quentinho_inferno",
+      "y": 270
+    }
+  }
+}

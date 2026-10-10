@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/joao_daniel"
+    },
+    "facing=east": {
+      "model": "musae:block/joao_daniel",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/joao_daniel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/joao_daniel",
+      "y": 270
+    }
+  }
+}

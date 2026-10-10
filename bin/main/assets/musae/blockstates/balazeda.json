@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/balazeda"
+    },
+    "facing=east": {
+      "model": "musae:block/balazeda",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/balazeda",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/balazeda",
+      "y": 270
+    }
+  }
+}

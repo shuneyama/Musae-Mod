@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.shune.musae.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "musae.refmap.json",
+  "client": [
+    "nick.PlayerDisplayNameMixin",
+    "nick.ClientSuggestionProviderMixin",
+    "race.InventoryScreenMixin",
+    "race.CreativeInventoryScreenMixin",
+    "race.ElytraRenderMixin"
+  ],
+  "server": [],
+  "mixins": [
+    "nick.PlayerEntityMixin",
+    "nick.LivingEntityMixin",
+    "nick.ServerPlayerMixin",
+    "nick.PlayerNameMixin",
+    "race.PlayerExhaustionMixin",
+    "race.ElytraProtectionMixin",
+    "race.ElytraFlightMixin",
+    "race.PlayerStartFallFlyingMixin",
+    "monitor.PlayerListMensagensMixin",
+    "give.GiveCommandMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
