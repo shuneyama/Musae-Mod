@@ -1,8 +1,11 @@
 package net.shune.musae.network;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
 import net.shune.musae.auth.AutorizacaoServidor;
+import net.shune.musae.client.ClientScaleHandler;
 
 import java.util.function.Supplier;
 
@@ -24,7 +27,10 @@ public class SyncAutorizacaoPacket {
 
     public static void handle(SyncAutorizacaoPacket packet, Supplier<NetworkEvent.Context> ctxSupplier) {
         NetworkEvent.Context ctx = ctxSupplier.get();
-        ctx.enqueueWork(() -> AutorizacaoServidor.aplicarEstadoRecebidoDoServidor(packet.autorizado));
+        ctx.enqueueWork(() -> {
+            AutorizacaoServidor.aplicarEstadoRecebidoDoServidor(packet.autorizado);
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ClientScaleHandler::refreshAllDimensions);
+        });
         ctx.setPacketHandled(true);
     }
 }

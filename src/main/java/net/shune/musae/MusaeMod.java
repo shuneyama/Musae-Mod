@@ -102,6 +102,15 @@ public class MusaeMod {
     }
 
     @SubscribeEvent
+    public void onStartTracking(PlayerEvent.StartTracking event) {
+        if (!AutorizacaoServidor.isAutorizado()) return;
+        if (!(event.getTarget() instanceof net.minecraft.world.entity.player.Player alvo)) return;
+        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer observador)) return;
+        net.shune.musae.network.NetworkHandler.sendToPlayer(observador,
+                new net.shune.musae.network.SyncScalePacket(alvo.getUUID(), PlayerScaleData.getScale(alvo)));
+    }
+
+    @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (!AutorizacaoServidor.isAutorizado()) return;
         if (!event.getEntity().level().isClientSide()) {

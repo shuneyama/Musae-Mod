@@ -4,7 +4,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
-import net.shune.musae.auth.AutorizacaoServidor;
 import net.shune.musae.client.ClientScaleHandler;
 
 import java.util.UUID;
@@ -32,7 +31,6 @@ public class SyncScalePacket {
     public static void handle(SyncScalePacket packet, Supplier<NetworkEvent.Context> ctxSupplier) {
         NetworkEvent.Context ctx = ctxSupplier.get();
         ctx.enqueueWork(() -> {
-            if (!AutorizacaoServidor.isAutorizado()) return;
             ClientScaleHandler.applyScale(packet.playerUUID, packet.scale);
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
                     ClientScaleHandler.applyScaleToRenderedPlayer(packet.playerUUID, packet.scale));

@@ -1,5 +1,6 @@
 package net.shune.musae.chat;
 
+import net.shune.musae.compatibility.LuckPermsBridge;
 import net.shune.musae.compatibility.MusaePermissoes;
 
 import net.minecraft.server.MinecraftServer;
@@ -52,6 +53,9 @@ public class PermissoesChatGlobal {
     }
 
     public static boolean permitir(MinecraftServer servidor, UUID jogadorUUID) {
+        if (LuckPermsBridge.disponivel()) {
+            return LuckPermsBridge.permitir(jogadorUUID, MusaePermissoes.NO_GLOBAL);
+        }
         carregarSeNecessario(servidor);
         boolean adicionado = PERMITIDOS.add(jogadorUUID.toString());
         if (adicionado) salvar(servidor);
@@ -62,6 +66,9 @@ public class PermissoesChatGlobal {
         carregarSeNecessario(servidor);
         boolean removido = PERMITIDOS.remove(jogadorUUID.toString());
         if (removido) salvar(servidor);
+        if (LuckPermsBridge.disponivel()) {
+            removido = LuckPermsBridge.revogar(jogadorUUID, MusaePermissoes.NO_GLOBAL) || removido;
+        }
         return removido;
     }
 
