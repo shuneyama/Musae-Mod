@@ -26,4 +26,11 @@ public class ModDollBlocks {
                     .strength(1.0f)
                     .sound(SoundType.WOOL)
                     .noOcclusion()));
+    
+        public static final RegistryObject<Block> HARU_DOLL = BLOCKS.register("haru_doll",
+            () -> new DollBlock(Block.Properties.of()
+                    .mapColor(MapColor.WOOD)
+                    .strength(1.0f)
+                    .sound(SoundType.WOOL)
+                    .noOcclusion()));
 }
