@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "musae:block/kael_doll" },
+    "facing=east":  { "model": "musae:block/kael_doll", "y": 90 },
+    "facing=south": { "model": "musae:block/kael_doll", "y": 180 },
+    "facing=west":  { "model": "musae:block/kael_doll", "y": 270 }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [ { "type": "minecraft:item", "name": "musae:tommy_doll" } ],
+      "conditions": [ { "condition": "minecraft:survives_explosion" } ]
+    }
+  ]
+}

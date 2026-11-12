@@ -1,0 +1,77 @@
+package net.shune.musae.compatibility;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
+import net.shune.musae.monitor.ArquivoUtil;
+import net.shune.musae.network.NetworkHandler;
+import net.shune.musae.network.SyncJadePacket;
+
+import java.nio.file.Path;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+
+public class PermissoesJade {
+
+    private static final Set<String> PERMITIDOS = ConcurrentHashMap.newKeySet();
+    private static boolean carregado = false;
+
+    private static Path arquivo(MinecraftServer servidor) {
+        return ArquivoUtil.pastaDoMundo(servidor).resolve("jade_permissoes.json");
+    }
+
+    private static void carregarSeNecessario(MinecraftServer servidor) {
+        if (carregado) return;
+        Dados dados = ArquivoUtil.lerJson(arquivo(servidor), Dados.class, new Dados());
+        PERMITIDOS.clear();
+        PERMITIDOS.addAll(dados.jogadores);
+        carregado = true;
+    }
+
+    private static void salvar(MinecraftServer servidor) {
+        Dados dados = new Dados();
+        dados.jogadores.addAll(PERMITIDOS.stream().sorted().collect(Collectors.toList()));
+        ArquivoUtil.escreverJson(arquivo(servidor), dados);
+    }
+
+    public static void resetarCache() {
+        carregado = false;
+        PERMITIDOS.clear();
+    }
+
+    public static boolean podeVerNicks(ServerPlayer jogador) {
+        if (MusaePermissoes.admin(jogador) || MusaePermissoes.jade(jogador)) return true;
+        if (jogador.getServer() == null) return false;
+        carregarSeNecessario(jogador.getServer());
+        return PERMITIDOS.contains(jogador.getUUID().toString());
+    }
+
+    public static boolean permitir(MinecraftServer servidor, UUID jogadorUUID) {
+        if (LuckPermsBridge.disponivel()) {
+            return LuckPermsBridge.permitir(jogadorUUID, MusaePermissoes.NO_JADE);
+        }
+        carregarSeNecessario(servidor);
+        boolean adicionado = PERMITIDOS.add(jogadorUUID.toString());
+        if (adicionado) salvar(servidor);
+        return adicionado;
+    }
+
+    public static boolean revogar(MinecraftServer servidor, UUID jogadorUUID) {
+        carregarSeNecessario(servidor);
+        boolean removido = PERMITIDOS.remove(jogadorUUID.toString());
+        if (removido) salvar(servidor);
+        if (LuckPermsBridge.disponivel()) {
+            removido = LuckPermsBridge.revogar(jogadorUUID, MusaePermissoes.NO_JADE) || removido;
+        }
+        return removido;
+    }
+
+    public static void sincronizar(ServerPlayer jogador) {
+        NetworkHandler.sendToPlayer(jogador, new SyncJadePacket(podeVerNicks(jogador)));
+    }
+
+    private static class Dados {
+        java.util.List<String> jogadores = new java.util.ArrayList<>();
+    }
+}

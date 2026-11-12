@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/vinho_sangue_galinha"
+    },
+    "facing=east": {
+      "model": "musae:block/vinho_sangue_galinha",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/vinho_sangue_galinha",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/vinho_sangue_galinha",
+      "y": 270
+    }
+  }
+}

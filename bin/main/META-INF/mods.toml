@@ -1,0 +1,55 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+
+[[mixins]]
+config = "musae.mixins.json"
+
+[[mods]]
+modId = "musae"
+version = "2.2"
+displayName = "Musae Mod"
+description = "Mod desenvolvido para Musae Eras SMP, por Shune: @yxmashu, @shuneyama :D"
+authors = "Shune"
+
+[[dependencies.musae]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.musae]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.musae]]
+modId = "jade"
+mandatory = false
+versionRange = "[11.0,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.musae]]
+modId = "curios"
+mandatory = false
+versionRange = "[5.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.musae]]
+modId = "playerrevive"
+mandatory = false
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.musae]]
+modId = "voicechat"
+mandatory = false
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"

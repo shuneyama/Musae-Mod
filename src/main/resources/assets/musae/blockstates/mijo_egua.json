@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/mijo_egua"
+    },
+    "facing=east": {
+      "model": "musae:block/mijo_egua",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/mijo_egua",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/mijo_egua",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/camparty"
+    },
+    "facing=east": {
+      "model": "musae:block/camparty",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/camparty",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/camparty",
+      "y": 270
+    }
+  }
+}

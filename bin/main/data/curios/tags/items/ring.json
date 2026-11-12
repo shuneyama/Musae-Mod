@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "musae:ring_blacksmith",
+    "musae:ring_knight",
+    "musae:ring_mage",
+    "musae:ring_rogue",
+    "musae:ring_swordsman",
+    "musae:ring_medic"
+  ]
+}

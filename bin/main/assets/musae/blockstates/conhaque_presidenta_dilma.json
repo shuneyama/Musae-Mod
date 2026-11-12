@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "musae:block/conhaque_presidenta_dilma"
+    },
+    "facing=east": {
+      "model": "musae:block/conhaque_presidenta_dilma",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "musae:block/conhaque_presidenta_dilma",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "musae:block/conhaque_presidenta_dilma",
+      "y": 270
+    }
+  }
+}

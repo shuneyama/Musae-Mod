@@ -1,0 +1,68 @@
+{
+  "itemGroup.musae": "Musae Mod",
+
+  "item.musae.ring_blacksmith": "Blacksmith's Ring",
+  "item.musae.ring_knight": "Knight's Ring",
+  "item.musae.ring_mage": "Mage's Ring",
+  "item.musae.ring_rogue": "Rogue's Ring",
+  "item.musae.ring_swordsman": "Swordsman's Ring",
+  "item.musae.ring_medic": "Medic's Ring",
+
+  "item.musae.contract_book": "Contract Book",
+  "item.musae.contract_book.blank": "Blank: awaiting content",
+  "item.musae.contract_book.pending": "Pending: awaiting cosignature",
+  "item.musae.contract_book.signed": "Signed: contract finalized",
+  "item.musae.contract_book.author": "Author: %s",
+  "item.musae.contract_book.cosigner": "Cosigner: %s",
+  "item.musae.contract_book.date": "Date: %s",
+  "item.musae.contract_book.btn_sign": "Sign Contract",
+  "item.musae.contract_book.btn_cosign": "Sign & Accept",
+  "item.musae.contract_book.signatures_title": "— Signatures —",
+  "item.musae.contract_book.sig_author": "Author:",
+  "item.musae.contract_book.sig_cosigner": "Cosigner:",
+  "item.musae.contract_book.msg_signed": "Contract signed! Deliver it to the other party.",
+  "item.musae.contract_book.msg_cosigned": "Contract accepted! A copy has been created.",
+  "item.musae.contract_book.msg_cannot_cosign": "You cannot cosign this contract.",
+
+  "item.musae.lamina_lobo_branco": "Lâmina Do Lobo Branco",
+  "item.musae.devoradora": "Devoradora",
+  "item.musae.veredito": "Veredito",
+
+  "item.musae.vinho_sangue_galinha": "Chicken Blood Wine",
+  "item.musae.vinho_quentinho_inferno": "Hell's Hot Wine",
+  "item.musae.joao_daniel": "João Daniel Whisky",
+  "item.musae.conhaque_presidenta_dilma": "President Dilma Cognac",
+  "item.musae.cachaca_pita": "Pita Cachaça",
+  "item.musae.balazeda": "Balazeda",
+  "item.musae.cachaca_52": "Cachaça 52",
+  "item.musae.camparty": "Camparty",
+  "item.musae.friozao": "Big Chill",
+  "item.musae.mijo_egua": "Mare's Piss",
+  "item.musae.suburbaninha": "Suburbaninha",
+
+  "block.musae.vinho_sangue_galinha": "Chicken Blood Wine",
+  "block.musae.vinho_quentinho_inferno": "Hell's Hot Wine",
+  "block.musae.joao_daniel": "João Daniel Whisky",
+  "block.musae.conhaque_presidenta_dilma": "President Dilma Cognac",
+  "block.musae.cachaca_pita": "Pita Cachaça",
+  "block.musae.balazeda": "Balazeda",
+  "block.musae.cachaca_52": "Cachaça 52",
+  "block.musae.camparty": "Camparty",
+  "block.musae.friozao": "Big Chill",
+  "block.musae.mijo_egua": "Mare's Piss",
+  "block.musae.suburbaninha": "Suburbaninha",
+  "block.musae.mug_doll": "Mug Doll",
+  "block.musae.boneco_com_pet": "Doll with Pet",
+
+  "effect.musae.bebado": "Drunk",
+
+  "key.categories.musae": "Musae Mod",
+  "key.musae.race_ability": "Race Ability",
+  "key.musae.race_ability_secondary": "Race Ability (Secondary)"
+
+
+
+
+
+
+}

@@ -1,0 +1,68 @@
+{
+  "itemGroup.musae": "Musae Mod",
+
+  "item.musae.ring_blacksmith": "Anel dos Ferreiros",
+  "item.musae.ring_knight": "Anel dos Cavaleiros",
+  "item.musae.ring_mage": "Anel dos Magos",
+  "item.musae.ring_rogue": "Anel do Ladino",
+  "item.musae.ring_swordsman": "Anel do Espadachim",
+  "item.musae.ring_medic": "Anel do Médico",
+
+  "item.musae.contract_book": "Livro de Contrato",
+  "item.musae.contract_book.blank": "Em branco: aguardando conteúdo",
+  "item.musae.contract_book.pending": "Pendente: aguardando assinatura",
+  "item.musae.contract_book.signed": "Assinado: contrato finalizado",
+  "item.musae.contract_book.author": "Autor: %s",
+  "item.musae.contract_book.cosigner": "Contraparte: %s",
+  "item.musae.contract_book.date": "Data: %s",
+  "item.musae.contract_book.btn_sign": "Assinar Contrato",
+  "item.musae.contract_book.btn_cosign": "Assinar e Aceitar",
+  "item.musae.contract_book.signatures_title": "— Assinaturas —",
+  "item.musae.contract_book.sig_author": "Autor:",
+  "item.musae.contract_book.sig_cosigner": "Contraparte:",
+  "item.musae.contract_book.msg_signed": "Contrato assinado! Entregue-o à outra parte.",
+  "item.musae.contract_book.msg_cosigned": "Contrato aceito! Uma cópia foi criada.",
+  "item.musae.contract_book.msg_cannot_cosign": "Você não pode assinar este contrato.",
+
+  "item.musae.lamina_lobo_branco": "Lâmina Do Lobo Branco",
+  "item.musae.devoradora": "Devoradora",
+  "item.musae.veredito": "Veredito",
+
+  "item.musae.vinho_sangue_galinha": "Vinho Sangue de Galinha",
+  "item.musae.vinho_quentinho_inferno": "Vinho Quentinho do Inferno",
+  "item.musae.joao_daniel": "Whisky João Daniel",
+  "item.musae.conhaque_presidenta_dilma": "Conhaque Presidenta Dilma",
+  "item.musae.cachaca_pita": "Cachaça Pita",
+  "item.musae.balazeda": "Balazeda",
+  "item.musae.cachaca_52": "Cachaça 52",
+  "item.musae.camparty": "Camparty",
+  "item.musae.friozao": "Friozão",
+  "item.musae.mijo_egua": "Mijo de Égua",
+  "item.musae.suburbaninha": "Suburbaninha",
+
+  "block.musae.vinho_sangue_galinha": "Vinho Sangue de Galinha",
+  "block.musae.vinho_quentinho_inferno": "Vinho Quentinho do Inferno",
+  "block.musae.joao_daniel": "Whisky João Daniel",
+  "block.musae.conhaque_presidenta_dilma": "Conhaque Presidenta Dilma",
+  "block.musae.cachaca_pita": "Cachaça Pita",
+  "block.musae.balazeda": "Balazeda",
+  "block.musae.cachaca_52": "Cachaça 52",
+  "block.musae.camparty": "Camparty",
+  "block.musae.friozao": "Friozão",
+  "block.musae.mijo_egua": "Mijo de Égua",
+  "block.musae.suburbaninha": "Suburbaninha",
+  "block.musae.mug_doll": "Boneco Mug",
+  "block.musae.boneco_com_pet": "Boneco Com Pet",
+
+  "effect.musae.bebado": "Bêbado",
+
+  "key.categories.musae": "Musae Mod",
+  "key.musae.race_ability": "Habilidade Racial",
+  "key.musae.race_ability_secondary": "Habilidade Racial (Secundária)"
+
+
+
+
+
+
+}
