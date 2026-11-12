@@ -25,7 +25,9 @@ public class MusaeCommand {
                         .then(BalaoCommand.buildBalaoSubcommand())
                         .then(VozCommand.buildVozSubcommand());
 
-        net.shune.musae.comandos.MusaeCommands.anexar(raiz);
+        if (net.shune.musae.comandos.ComandosEvents.ativo()) {
+            net.shune.musae.comandos.MusaeCommands.anexar(raiz);
+        }
 
         dispatcher.register(raiz);
     }
