@@ -105,9 +105,8 @@ public class RaceAbilityPacket {
         List<LivingEntity> entities = player.level().getEntitiesOfClass(LivingEntity.class, area,
                 e -> e != player && e.isAlive());
 
-        for (LivingEntity entity : entities) {
-            entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, dur, 0, false, false, false));
-        }
+        int[] ids = entities.stream().mapToInt(Entity::getId).toArray();
+        NetworkHandler.sendToPlayer(player, new FarejarPacket(dur, ids));
 
         data.setCooldownTicks(RaceConfig.QUIMERA_FAREJAR_COOLDOWN.get());
         player.displayClientMessage(Component.literal("§eFarejando... " + entities.size()

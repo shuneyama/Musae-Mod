@@ -112,6 +112,12 @@ public class NetworkHandler {
                 .consumerMainThread(SyncAutorizacaoPacket::handle)
                 .add();
 
+        CHANNEL.messageBuilder(FarejarPacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(FarejarPacket::encode)
+                .decoder(FarejarPacket::decode)
+                .consumerMainThread(FarejarPacket::handle)
+                .add();
+
         CHANNEL.messageBuilder(SyncJadePacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncJadePacket::encode)
                 .decoder(SyncJadePacket::decode)

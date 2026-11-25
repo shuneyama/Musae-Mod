@@ -8,7 +8,8 @@
     "nick.PlayerDisplayNameMixin",
     "nick.ClientSuggestionProviderMixin",
     "race.InventoryScreenMixin",
-    "race.CreativeInventoryScreenMixin"
+    "race.CreativeInventoryScreenMixin",
+    "race.MinecraftGlowMixin"
   ],
   "server": [],
   "mixins": [

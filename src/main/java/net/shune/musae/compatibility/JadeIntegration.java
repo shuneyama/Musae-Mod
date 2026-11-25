@@ -2,11 +2,9 @@ package net.shune.musae.compatibility;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.shune.musae.auth.AutorizacaoServidor;
-import net.shune.musae.client.ClientNicknameHandler;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.ITooltip;
@@ -32,15 +30,9 @@ public class JadeIntegration implements IWailaPlugin {
         @Override
         public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
             if (!AutorizacaoServidor.isAutorizado()) return;
-            if (accessor.getEntity() instanceof Player alvo) {
+            if (accessor.getEntity() instanceof Player) {
+                if (JadeClientState.podeVerNicks()) return;
                 tooltip.clear();
-                if (JadeClientState.podeVerNicks()) {
-                    MutableComponent nick = ClientNicknameHandler.getStyledNickname(alvo.getUUID());
-                    if (nick != null) {
-                        tooltip.add(nick);
-                        return;
-                    }
-                }
                 tooltip.add(Component.literal("???")
                         .withStyle(ChatFormatting.OBFUSCATED)
                         .withStyle(ChatFormatting.DARK_GRAY));
