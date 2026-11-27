@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.shune.musae.MusaeMod;
 import net.shune.musae.auth.AutorizacaoServidor;
 import net.shune.musae.chat.ChatEntrada;
+import net.shune.musae.chat.ConfiguracaoChat;
 
 @Mod.EventBusSubscriber(modid = MusaeMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class NicknameChatHandler {
@@ -16,6 +17,7 @@ public class NicknameChatHandler {
         if (!AutorizacaoServidor.isAutorizado()) return;
         ServerPlayer player = event.getPlayer();
         if (player.getServer() == null) return;
+        if (!ConfiguracaoChat.isAtivo(player.getServer())) return;
 
         event.setCanceled(true);
 

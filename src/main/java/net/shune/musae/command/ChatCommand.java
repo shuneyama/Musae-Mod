@@ -26,14 +26,14 @@ public class ChatCommand {
     public static void registerComandosGlobais(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("g")
-                        .requires(src -> AutorizacaoServidor.isAutorizado() && podeUsarGlobal(src))
+                        .requires(src -> AutorizacaoServidor.isAutorizado() && ConfiguracaoChat.isAtivo(src.getServer()) && podeUsarGlobal(src))
                         .then(Commands.argument("mensagem", StringArgumentType.greedyString())
                                 .executes(ChatCommand::enviarGlobal))
         );
 
         dispatcher.register(
                 Commands.literal("global")
-                        .requires(src -> AutorizacaoServidor.isAutorizado() && podeUsarGlobal(src))
+                        .requires(src -> AutorizacaoServidor.isAutorizado() && ConfiguracaoChat.isAtivo(src.getServer()) && podeUsarGlobal(src))
                         .then(Commands.argument("mensagem", StringArgumentType.greedyString())
                                 .executes(ChatCommand::enviarGlobal))
         );
@@ -58,6 +58,10 @@ public class ChatCommand {
     public static LiteralArgumentBuilder<CommandSourceStack> buildChatSubcommand() {
         return Commands.literal("chat")
                 .requires(MusaePermissoes::admin)
+                .then(Commands.literal("on")
+                        .executes(ctx -> definirAtivo(ctx, true)))
+                .then(Commands.literal("off")
+                        .executes(ctx -> definirAtivo(ctx, false)))
                 .then(Commands.literal("raio")
                         .then(Commands.literal("definir")
                                 .then(Commands.argument("valor", DoubleArgumentType.doubleArg(1.0, 500.0))
@@ -70,6 +74,23 @@ public class ChatCommand {
                 .then(Commands.literal("revogar")
                         .then(Commands.argument("jogadores", EntityArgument.players())
                                 .executes(ChatCommand::revogarGlobal)));
+    }
+
+    private static int definirAtivo(CommandContext<CommandSourceStack> ctx, boolean ativo) {
+        MinecraftServer servidor = ctx.getSource().getServer();
+
+        ConfiguracaoChat config = ConfiguracaoChat.get(servidor);
+        config.ativo = ativo;
+        ConfiguracaoChat.salvar(servidor);
+
+        // /g e /global mudam de disponibilidade, então atualiza as sugestões dos jogadores
+        servidor.getPlayerList().getPlayers().forEach(p -> servidor.getCommands().sendCommands(p));
+
+        ctx.getSource().sendSuccess(() -> Component.literal(ativo
+                        ? "Chat do Musae ativado (local por raio, /g e /global, balões)."
+                        : "Chat do Musae desativado. O chat vanilla foi restaurado.")
+                .withStyle(ativo ? ChatFormatting.GREEN : ChatFormatting.YELLOW), true);
+        return 1;
     }
 
     private static int definirRaio(CommandContext<CommandSourceStack> ctx) {

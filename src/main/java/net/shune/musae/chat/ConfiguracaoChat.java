@@ -8,6 +8,7 @@ import java.nio.file.Path;
 public class ConfiguracaoChat {
 
     public double raioLocal = 50.0;
+    public boolean ativo = true;
 
     private static ConfiguracaoChat instancia;
 
@@ -20,6 +21,10 @@ public class ConfiguracaoChat {
             instancia = ArquivoUtil.lerJson(arquivo(servidor), ConfiguracaoChat.class, new ConfiguracaoChat());
         }
         return instancia;
+    }
+
+    public static boolean isAtivo(MinecraftServer servidor) {
+        return servidor == null || get(servidor).ativo;
     }
 
     public static void salvar(MinecraftServer servidor) {

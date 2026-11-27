@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.shune.musae.MusaeMod;
 import net.shune.musae.auth.AutorizacaoServidor;
 import net.shune.musae.chat.ChatEntrada;
+import net.shune.musae.chat.ConfiguracaoChat;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -100,6 +101,7 @@ public final class BukkitChatBridge {
             if (jogadorBukkit == null) return;
             Object manipulador = jogadorBukkit.getClass().getMethod("getHandle").invoke(jogadorBukkit);
             if (!(manipulador instanceof ServerPlayer jogador)) return;
+            if (!ConfiguracaoChat.isAtivo(jogador.getServer())) return;
             String mensagem = (String) classeEvento.getMethod("getMessage").invoke(evento);
             classeEvento.getMethod("setCancelled", boolean.class).invoke(evento, true);
             ChatEntrada.receber(jogador, mensagem);
